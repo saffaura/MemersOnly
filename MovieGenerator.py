@@ -16,5 +16,6 @@ while again(res):
 		for i, line in enumerate(file):
 			if i == num:
 				print("\nJack has not seen: " + line.strip());
+				break;
 	
 	res = raw_input("Continue? ")
