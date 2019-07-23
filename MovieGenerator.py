@@ -4,18 +4,22 @@ def again(res):
 	res = res.lower()
 	return res == "yes" or res == "y" or res == "Y"
 
-min = 0
-max = 101
 res = "y"
+movies = []
+
+with open("movies.txt") as file:
+		for i, line in enumerate(file):
+			movies.append(line.strip())
 
 while again(res):
     
-	num = random.randint(min, max)
+	num = random.randint(0, len(movies) - 1)
 	
-	with open("movies.txt") as file:
-		for i, line in enumerate(file):
-			if i == num:
-				print("\nJack has not seen: " + line.strip());
-				break;
+	print("\nJack has not seen: " + movies[num]);
+	movies.pop(num);
+	
+	if len(movies) == 0:
+		break;
 	
 	res = raw_input("Continue? ")
+	
